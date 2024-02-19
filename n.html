@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Typing Effect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Pangolin&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<style>
+  div {
+    display: flex;
+    justify-content: center;
+  }
+  pre {
+    font-size: 5em;
+    font-weight: 700;
+    writing-mode: vertical-rl;
+  }
+</style>
+
+<div>
+  <pre id="myText"></pre>
+</div>
+
+<script>
+  async function typeTextWithLineBreaks(text, speed) {
+    const element = document.getElementById('myText');
+    for (const char of text) {
+      await sleep(speed);
+      element.textContent += char;
+    }
+  }
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  typeTextWithLineBreaks("キッチンスケール", 1);
+</script>
+
+</body>
+</html>
